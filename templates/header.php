@@ -26,16 +26,9 @@
         <a href="#" title="Login">Sign up/Log in</a>
         <?php endif; ?>
         <a href="#" title="About CampChaser">About CampChaser</a>
-        <!-- Follow Campchaser -->
-        <a class="social-icon" href="https://www.facebook.com/pages/Campchaser/795282490559319" title="Facebook">
-          <span class="sr-text">Facebook</span>
-        </a>
-        <a class="social-icon" href="https://twitter.com/CampChaser" title="Twitter">
-          <span class="sr-text">Twitter</span>
-        </a>
-        <a class="social-icon" href="http://instagram.com/campchaser/" title="Instagram">
-          <span class="sr-text">Instagram</span>
-        </a>
+
+        <?php get_template_part('templates/social'); ?>
+
       </nav>
     </div>
     <button class="navbar-button js-toggle-menu">&times;</button>
