@@ -1,23 +1,43 @@
 <?php use Roots\Sage\Nav\NavWalker; ?>
 
-<header class="banner navbar navbar-default navbar-static-top" role="banner">
+<header class="navbar" role="banner">
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only"><?= __('Toggle navigation', 'sage'); ?></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+    <div class="navbar-left">
+      <a class="navbar-logo" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
     </div>
 
-    <nav class="collapse navbar-collapse" role="navigation">
-      <?php
-      if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new NavWalker(), 'menu_class' => 'nav navbar-nav']);
-      endif;
-      ?>
-    </nav>
+    <div class="navbar-right" role="navigation">
+      <a class="hide--medium" href="#" title="Add a Site">&plus; Add Site</a>
+      <button class="navbar-button js-toggle-menu">Menu</button>
+    </div>
+  </div>
+
+  <div class="main-menu">
+    <div class="container">
+      <!-- Search -->
+      <?php get_search_form(); ?>
+      <!-- End Search -->
+
+      <nav class="main-menu-nav">
+        <a href="#" title="Add a Site">Add Site</a>
+        <?php if (is_user_logged_in()): ?>
+        <a href="#" title="Your Profile">Profile</a>
+        <?php else : ?>
+        <a href="#" title="Login">Sign up/Log in</a>
+        <?php endif; ?>
+        <a href="#" title="About CampChaser">About CampChaser</a>
+        <!-- Follow Campchaser -->
+        <a class="social-icon" href="https://www.facebook.com/pages/Campchaser/795282490559319" title="Facebook">
+          <span class="sr-text">Facebook</span>
+        </a>
+        <a class="social-icon" href="https://twitter.com/CampChaser" title="Twitter">
+          <span class="sr-text">Twitter</span>
+        </a>
+        <a class="social-icon" href="http://instagram.com/campchaser/" title="Instagram">
+          <span class="sr-text">Instagram</span>
+        </a>
+      </nav>
+    </div>
+    <button class="navbar-button js-toggle-menu">&times;</button>
   </div>
 </header>
