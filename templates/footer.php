@@ -1,5 +1,10 @@
-<footer class="content-info" role="contentinfo">
+<footer class="main-footer" role="contentinfo">
   <div class="container">
-    <?php dynamic_sidebar('sidebar-footer'); ?>
+  	<nav class="layout-left">
+	    <?php get_template_part('templates/social'); ?>
+	</nav>
+	<nav class="layout-right">
+		<a href="#" title="Legal">Terms & Privacy</a>
+	</nav>
   </div>
 </footer>
