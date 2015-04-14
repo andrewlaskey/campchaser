@@ -2,10 +2,12 @@
 
 namespace Roots\Sage\CustomQueries;
 
-function get_most_popular() {
+function get_most_popular($paged = null) {
 	global $wp_query;
 
-	$paged = ($wp_query->paged) ? $wp_query->paged : 1;
+	if (!is_null($paged)) {
+		$paged = ($wp_query->paged) ? $wp_query->paged : 1;
+	}
 	
 	$args = array(
 		'post_type' => 'post',
@@ -18,10 +20,12 @@ function get_most_popular() {
 	return new \WP_Query($args);
 }
 
-function get_most_recent() {
+function get_most_recent($paged = null) {
 	global $wp_query;
 
-	$paged = ($wp_query->paged) ? $wp_query->paged : 1;
+	if (!is_null($paged)) {
+		$paged = ($wp_query->paged) ? $wp_query->paged : 1;
+	}
 	
 	$args = array(
 		'post_type' => 'post',
