@@ -4,7 +4,7 @@
 	    <?php get_template_part('templates/social'); ?>
 	</nav>
 	<nav class="layout-right">
-		<a href="#" title="Legal">Terms & Privacy</a>
+		<a href="<?= get_permalink( get_page_by_path( 'legal' ) ); ?>" title="Legal">Terms & Privacy</a>
 	</nav>
   </div>
 </footer>

@@ -23,9 +23,9 @@
         <?php if (is_user_logged_in()): ?>
         <a href="#" title="Your Profile">Profile</a>
         <?php else : ?>
-        <a href="#" title="Login">Sign up/Log in</a>
+        <a href="<?= wp_login_url(); ?>" title="Login">Sign up/Log in</a>
         <?php endif; ?>
-        <a href="#" title="About CampChaser">About CampChaser</a>
+        <a href="<?= get_permalink( get_page_by_path( 'about' ) ); ?>" title="About CampChaser">About CampChaser</a>
 
         <?php get_template_part('templates/social'); ?>
 
