@@ -13,7 +13,7 @@
     <option value="<?= get_permalink( get_page_by_path( 'popular' ) ); ?>">Popular</option>
     <?php endif; ?>
     <?php if (is_user_logged_in()): ?>
-    <option>Your Sites</option>
+    <option value="<?php echo get_author_posts_url( get_current_user_id() ); ?>">Your Sites</option>
     <option>Saved Sites</option>
     <?php endif; ?>
   </select>

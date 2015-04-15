@@ -31,3 +31,16 @@ function excerpt_more() {
   return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
+
+
+/**
+ * Change Author rewrite rules
+ */
+add_action('init', __NAMESPACE__ . '\\change_author_base');
+function change_author_base() {
+    global $wp_rewrite;
+    $author_slug = 'user'; // change slug name
+    $wp_rewrite->author_base = $author_slug;
+
+    $wp_rewrite->flush_rules();
+}
