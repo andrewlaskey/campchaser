@@ -23,6 +23,26 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+
+        $('.post-select').on('change', function() {
+          var queryUrl = this.value;
+
+          $.ajax({
+            type : 'POST',
+            url : queryUrl,
+            dataType: 'text'
+          }).done(function (data) {
+
+            $('.post-list').html($($.parseHTML(data)).find('.post-list').addBack('.post-list').html());
+
+          }).fail(function () {
+            //console.log('FAIL');
+            window.location.href = queryUrl;
+          });
+
+          return false;
+        });
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

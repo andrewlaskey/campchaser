@@ -6,11 +6,11 @@
   <?php else : ?>
   <select class="post-select">
     <?php if (is_page('popular' )): ?>
-    <option>Popular</option>
-    <option>Recent</option>
+    <option value="<?= get_permalink( get_page_by_path( 'popular' ) ); ?>">Popular</option>
+    <option value="<?= get_permalink( get_page_by_path( 'recent' ) ); ?>">Recent</option>
     <?php else : ?>
-    <option>Recent</option>
-    <option>Popular</option>
+    <option value="<?= get_permalink( get_page_by_path( 'recent' ) ); ?>">Recent</option>
+    <option value="<?= get_permalink( get_page_by_path( 'popular' ) ); ?>">Popular</option>
     <?php endif; ?>
     <?php if (is_user_logged_in()): ?>
     <option>Your Sites</option>
