@@ -43,6 +43,32 @@
           return false;
         });
 
+        $('.save-site').on('click', function(e) {
+          e.preventDefault();
+
+          $that = $(this);
+
+          data = {
+            action: 'like_post',
+            campchaser_ajax_nonce: campchaser_ajax_vars.campchaser_ajax_nonce,
+            postID: $(this).attr('data-post'),
+            userID: $(this).attr('data-user')
+          };
+
+          $.post(campchaser_ajax_vars.campchaser_ajax_url, data, function (response) {
+            if ( response ) {
+              response = JSON.parse(response);
+              console.log(response.buttonAction);
+              if ( response.buttonAction === 'added' ) {
+                console.log('Adding');
+                console.log($that);
+                $that.find('.save-site-number').html(response.likes);
+              }
+        
+            }
+          });
+        });
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
